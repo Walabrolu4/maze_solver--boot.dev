@@ -7,11 +7,6 @@ class Cell():
     self.has_top_wall = has_top_wall
     self.has_bottom_wall = has_bottom_wall
 
-    self._x1 = 0
-    self._x2 = 0
-    self._y1 = 0
-    self._y2 = 0
-
     self.point_top_left = Point(0,0)
     self.point_top_right = Point(0,0)
     self.point_bottom_left = Point(0,0)
@@ -19,14 +14,14 @@ class Cell():
     self._win = win
 
   def draw(self,top_left,bottom_right):
-    self._x1 = top_left.x
-    self._y1 = top_left.y
-    self._x2 = bottom_right.x
-    self._y2 = bottom_right.y
-    self.point_top_left.set(self._x1,self._y1)
-    self.point_top_right.set(self._x2,self._y1)
-    self.point_bottom_left.set(self._x1,self._y2)
-    self.point_bottom_right.set(self._x2,self._y2)
+    x1 = top_left.x
+    y1 = top_left.y
+    x2 = bottom_right.x
+    y2 = bottom_right.y
+    self.point_top_left.set(x1,y1)
+    self.point_top_right.set(x2,y1)
+    self.point_bottom_left.set(x1,y2)
+    self.point_bottom_right.set(x2,y2)
 
     if self.has_top_wall:
       self._win.draw_line(Line(self.point_top_left,self.point_top_right),"black")
