@@ -29,6 +29,8 @@ def Main():
   cell.draw(point5,point6)
   cell2.draw(point,point2)
   cell3.draw(point3,point4)
+  cell.draw_move(cell2)
+  cell2.draw_move(cell3,True)
   win.wait_for_close()
 
 
