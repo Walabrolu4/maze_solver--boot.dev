@@ -2,9 +2,21 @@ from window import Window
 from point import Point
 from line import Line
 from cell import Cell
+from maze import Maze
 def Main():
   win = Window(800,600)
+  maze = Maze(1,1,50,50,win)
   win.canvas.configure(width=800, height=600)
+  maze._create_cells()
+  
+  win.wait_for_close()
+
+
+Main()
+
+
+
+'''
 
 
   point = Point(40,40)
@@ -31,7 +43,5 @@ def Main():
   cell3.draw(point3,point4)
   cell.draw_move(cell2)
   cell2.draw_move(cell3,True)
-  win.wait_for_close()
 
-
-Main()
+'''
