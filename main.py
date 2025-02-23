@@ -5,10 +5,13 @@ from cell import Cell
 from maze import Maze
 def Main():
   win = Window(800,600)
-  maze = Maze(1,1,50,50,win)
+  maze = Maze(10,10,25,25,win)
   win.canvas.configure(width=800, height=600)
   maze._create_cells()
-  
+  maze._break_entrance_and_exit()
+  maze._break_walls_r(0,0)
+  maze._reset_cells_visited()
+  maze.solve()
   win.wait_for_close()
 
 

@@ -6,7 +6,7 @@ class Cell():
     self.has_right_wall = has_right_wall
     self.has_top_wall = has_top_wall
     self.has_bottom_wall = has_bottom_wall
-
+    self.visited = False
     self.x1 = 0
     self.y1 = 0
     self.x2 = 0
@@ -32,12 +32,20 @@ class Cell():
 
     if self.has_top_wall:
       self._win.draw_line(Line(self.point_top_left,self.point_top_right),"black")
+    else:
+      self._win.draw_line(Line(self.point_top_left,self.point_top_right),"white")
     if self.has_bottom_wall:
       self._win.draw_line(Line(self.point_bottom_left,self.point_bottom_right),"black")
+    else:
+      self._win.draw_line(Line(self.point_bottom_left,self.point_bottom_right),"white")
     if self.has_left_wall:
       self._win.draw_line(Line(self.point_top_left,self.point_bottom_left),"black")
+    else:
+      self._win.draw_line(Line(self.point_top_left,self.point_bottom_left),"white")    
     if self.has_right_wall:
       self._win.draw_line(Line(self.point_top_right,self.point_bottom_right),"black")
+    else:
+      self._win.draw_line(Line(self.point_top_right,self.point_bottom_right),"white")    
   
   def draw_move(self,to_cell,undo=False):
     line = Line(self.get_center(),to_cell.get_center())
@@ -48,3 +56,4 @@ class Cell():
 
   def get_center(self):
     return Point((self.x1+self.x2)/2 , (self.y1+self.y2)/2)
+
